@@ -1,5 +1,4 @@
 import { StyleSheet } from "react-native";
-import colors from "../../constants/colors";
 
 export const styles = StyleSheet.create({
 	container: {
@@ -12,13 +11,25 @@ export const styles = StyleSheet.create({
 		fontSize: 20,
 		fontFamily: "Lato-Bold",
 	},
+	card: {
+		width: 300,
+		maxWidth: "80%",
+		alignItems: "center",
+	},
 	buttonContainer: {
 		flexDirection: "row",
-		width: "70%",
+		width: "80%",
 		justifyContent: "space-around",
 		marginTop: 20,
 		paddingHorizontal: 15,
 		paddingBottom: 10,
+	},
+	thinkingEmoji: {
+		fontSize: 38,
+	},
+	generatedNumber: {
+		fontSize: 32,
+		marginVertical: 20,
 	},
 	selectedNumber: {
 		paddingHorizontal: 12,
@@ -27,11 +38,5 @@ export const styles = StyleSheet.create({
 	},
 	selectedNumberText: {
 		fontSize: 18,
-	},
-	gameInfo: {
-		marginBottom: 14,
-		fontSize: 12,
-		fontStyle: "italic",
-		color: colors.secondary,
 	},
 });

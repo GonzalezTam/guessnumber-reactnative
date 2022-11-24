@@ -13,6 +13,6 @@ export const styles = StyleSheet.create({
 	title: {
 		color: colors.white,
 		fontSize: 20,
-		fontWeight: "bold",
+		fontFamily: "Lato-Bold",
 	},
 });
