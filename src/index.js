@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import { Header } from './components';
-import { Start, Game } from './screens';
+import { Start, Game, Over } from './screens';
 import colors from './constants/colors';
 import { useFonts } from 'expo-font';
 
@@ -12,14 +12,39 @@ export default function App() {
   });
 
   const [userNumber, setUserNumber] = useState(null);
+  const [rounds, setRounds] = useState(0);
 
   const onStartGame = (selectedNumber) => {
     setUserNumber(selectedNumber);
   };
 
+  const onGameOver = (rounds) => {
+    setRounds(rounds);
+  };
+
+  const onRestart = () => {
+    setUserNumber(null);
+    setRounds(0);
+  };
+
   let mainContent = <Start onStartGame={onStartGame} />;
-  if (userNumber) {
-    mainContent = <Game userChoice={userNumber} />;
+
+  const getTitle = () => {
+    let title;
+    if (userNumber && rounds <= 0) {
+      title = 'Time to play 😎';
+    } else if (rounds > 0) {
+      title = 'Game over 💩';
+    } else {
+      title = 'Hi there! 👋🏻';
+    }
+    return title;
+  };
+
+  if (userNumber && rounds <= 0) {
+    mainContent = <Game selectedNumber={userNumber} onGameOver={onGameOver} />;
+  } else if (rounds > 0) {
+    mainContent = <Over rounds={rounds} selectedNumber={userNumber} onRestart={onRestart} />;
   }
 
   if (!loaded) {
@@ -32,7 +57,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Header title={userNumber ? 'Time to play 😎' : 'Hi there! 👋🏻'} />
+      <Header title={getTitle()} />
       {mainContent}
     </View>
   );

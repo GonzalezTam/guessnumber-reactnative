@@ -1,12 +1,17 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions, PixelRatio } from "react-native";
 import colors from "../../constants/colors";
 
+const { width } = Dimensions.get("window");
+
 export const styles = StyleSheet.create({
+	containerScroll: {
+		flex: 1,
+	},
 	container: {
 		flex: 1,
 		width: "100%",
 		alignItems: "center",
-		paddingTop: 70,
+		paddingTop: PixelRatio.getPixelSizeForLayoutSize(20),
 	},
 	title: {
 		fontSize: 20,
@@ -14,7 +19,7 @@ export const styles = StyleSheet.create({
 	},
 	buttonContainer: {
 		flexDirection: "row",
-		width: "70%",
+		width: width * 0.6,
 		justifyContent: "space-around",
 		marginTop: 20,
 		paddingHorizontal: 15,

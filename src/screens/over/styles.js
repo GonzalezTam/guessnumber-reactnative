@@ -3,7 +3,7 @@ import { StyleSheet, Dimensions, PixelRatio } from "react-native";
 const { width } = Dimensions.get("window");
 
 export const styles = StyleSheet.create({
-	scrollContainer: {
+	containerScroll: {
 		flex: 1,
 	},
 	container: {
@@ -12,36 +12,33 @@ export const styles = StyleSheet.create({
 		alignItems: "center",
 		paddingTop: PixelRatio.getPixelSizeForLayoutSize(20),
 	},
-	title: {
-		fontSize: 20,
-		fontFamily: "Lato-Bold",
-	},
-	card: {
+	content: {
 		width: 300,
 		maxWidth: "80%",
 		alignItems: "center",
 	},
 	buttonContainer: {
 		flexDirection: "row",
-		width: width * 0.6,
+		width: width * 0.7,
 		justifyContent: "space-around",
 		marginTop: 20,
 		paddingHorizontal: 15,
 		paddingBottom: 10,
 	},
-	thinkingEmoji: {
-		fontSize: 38,
-	},
 	generatedNumber: {
 		fontSize: 32,
-		marginVertical: 20,
-	},
-	selectedNumber: {
-		paddingHorizontal: 12,
-		paddingVertical: 8,
 		marginVertical: 10,
 	},
 	selectedNumberText: {
+		paddingHorizontal: 12,
+		marginVertical: 20,
 		fontSize: 18,
+	},
+	rounds: {
+		fontSize: 18,
+	},
+	image: {
+		width: '100%',
+		height: 180,
 	},
 });

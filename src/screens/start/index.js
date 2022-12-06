@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { View, Text, Button, TouchableWithoutFeedback, Keyboard, Alert } from "react-native";
+import React, { useState } from "react";
+import { View, Text, Button, TouchableWithoutFeedback, Keyboard, Alert, ScrollView } from "react-native";
 import { Card, Input } from "../../components";
 import colors from "../../constants/colors";
 import { styles } from "./styles";
@@ -43,23 +43,25 @@ const Start = ({ onStartGame }) => {
 
 	return (
 		<TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-			<View style={styles.container}>
-				<Text style={styles.title}>Start Game</Text>
-				<Card style={styles.inputContainer}>
-					<Input
-						onHandleChange={onHandleChange}
-						value={enteredValue}
-						placeholder="Enter a Number"
-						maxLength={2}
-						keyboardType="number-pad"
-						style={styles.input} />
-					<View style={styles.buttonContainer}>
-						<Button title="Reset" onPress={onHandleResetValue} color={colors.secondary} />
-						<Button title="Confirm" onPress={onHandleConfirmValue} color={colors.primary} />
-					</View>
-				</Card>
-				{confirmedOutput()}
-			</View>
+			<ScrollView style={styles.containerScroll}>
+				<View style={styles.container}>
+					<Text style={styles.title}>Start Game</Text>
+					<Card style={styles.inputContainer}>
+						<Input
+							onHandleChange={onHandleChange}
+							value={enteredValue}
+							placeholder="Enter a Number"
+							maxLength={2}
+							keyboardType="number-pad"
+							style={styles.input} />
+						<View style={styles.buttonContainer}>
+							<Button title="Reset" onPress={onHandleResetValue} color={colors.secondary} />
+							<Button title="Confirm" onPress={onHandleConfirmValue} color={colors.primary} />
+						</View>
+					</Card>
+					{confirmedOutput()}
+				</View>
+			</ScrollView>
 		</TouchableWithoutFeedback>
 	);
 };
